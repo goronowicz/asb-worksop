@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exc-one-send-messages", "exc-one-send-messages\exc-one-send-messages.csproj", "{EFC8CFA8-8E39-42E8-992A-90495F7CD0E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exc_one_send_messages", "exc-one-send-messages\exc_one_send_messages.csproj", "{EFC8CFA8-8E39-42E8-992A-90495F7CD0E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
