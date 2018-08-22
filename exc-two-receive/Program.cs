@@ -19,9 +19,9 @@ namespace exc_two_receive
 
             queueClient = new QueueClient(configuration["serviceBusConnection"],
                 configuration["queueName"],
-                receiveMode: ReceiveMode.ReceiveAndDelete);
-            var options = new MessageHandlerOptions(ExceptionHandler);
-            queueClient.RegisterMessageHandler(ReceiveMessage, options);
+                receiveMode: ReceiveMode.PeekLock);
+
+            queueClient.RegisterMessageHandler(ReceiveMessage, ExceptionHandler);
 
             WaitForEnd();
         }
@@ -30,6 +30,7 @@ namespace exc_two_receive
         {
             return queueClient.CloseAsync();
         }
+
 
         public static Task ReceiveMessage(Message message, CancellationToken cancellation)
         {
