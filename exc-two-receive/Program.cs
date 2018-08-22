@@ -1,5 +1,4 @@
 ﻿using Microsoft.Azure.ServiceBus;
-using Microsoft.Azure.ServiceBus.Core;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
@@ -18,32 +17,28 @@ namespace exc_two_receive
         {
             var configuration = BuildConfiguration();
 
-            //TODO: utwórz klienta czytającego z kolejki IQueueClient lub MessageReceiver
-            // ustaw odpowiedni connection string i nazwę kolejki w konfiguracji
-            // właściwości serviceBusConnection, queueName
-
-            //zajerestruj message handler - ReceiveMessage i exceptionHandler - ExceptionHandler
+            queueClient = new QueueClient(configuration["serviceBusConnection"],
+                configuration["queueName"],
+                receiveMode: ReceiveMode.ReceiveAndDelete);
+            var options = new MessageHandlerOptions(ExceptionHandler);
+            queueClient.RegisterMessageHandler(ReceiveMessage, options);
 
             WaitForEnd();
         }
 
         private static Task CleanUp()
         {
-            //TODO: zakończ połączenie do kolejki
-            return Task.CompletedTask;
+            return queueClient.CloseAsync();
         }
-
 
         public static Task ReceiveMessage(Message message, CancellationToken cancellation)
         {
             lock (Console.Out)
             {
-                //TODO: zdekoduj przesłaną wiadomość - Body
-                var content = "";
+                var content = Encoding.UTF8.GetString(message.Body);
 
                 Console.WriteLine("Message received:");
                 Console.WriteLine(content);
-                
             }
 
             return Task.CompletedTask;
