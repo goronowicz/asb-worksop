@@ -23,7 +23,14 @@ namespace exc_one_send_messages.Controllers
         }
         public async Task<ActionResult> Post([FromBody]Models.Message message)
         {
-            
+            var messageEnvelop = new Microsoft.Azure.ServiceBus.Message
+            {
+                MessageId = message.ID.ToString(),
+                ContentType = "application/json",
+                Body = System.Text.UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message))
+            };
+
+            await queueClient.SendAsync(messageEnvelop);
             return Ok();
         }
     }
