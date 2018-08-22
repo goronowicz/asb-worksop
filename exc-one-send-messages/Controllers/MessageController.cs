@@ -27,7 +27,7 @@ namespace exc_one_send_messages.Controllers
             {
                 MessageId = message.ID.ToString(),
                 ContentType = "application/json",
-                Body = System.Text.UTF8Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message))
+                Body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message))
             };
 
             await queueClient.SendAsync(messageEnvelop);

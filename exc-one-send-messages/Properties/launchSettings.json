@@ -20,7 +20,7 @@
     "exc_one_send_messages": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/public/ping",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
