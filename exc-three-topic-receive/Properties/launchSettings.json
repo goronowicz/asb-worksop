@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "exc-three-topic-receive": {
+      "commandName": "Project",
+      "commandLineArgs": "AllDomains"
+    }
+  }
+}

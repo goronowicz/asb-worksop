@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "exc-two-receive", "exc-two-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{EC0AD162-FF78-45DA-8CF4-358256D64072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exc-three-topic-receive", "exc-three-topic-receive\exc-three-topic-receive.csproj", "{4A447AB6-6112-4F2E-B15D-6C5242E583B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A447AB6-6112-4F2E-B15D-6C5242E583B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A447AB6-6112-4F2E-B15D-6C5242E583B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A447AB6-6112-4F2E-B15D-6C5242E583B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A447AB6-6112-4F2E-B15D-6C5242E583B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
