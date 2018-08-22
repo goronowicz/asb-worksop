@@ -27,7 +27,8 @@ namespace exc_one_send_messages
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddSingleton<IQueueClient, QueueClient>(s => new QueueClient(Configuration["serviceBusConnection"], "q-exc-one"));
+            services.AddSingleton<IQueueClient, QueueClient>(s => new QueueClient(Configuration["serviceBusConnection"],
+                Configuration["queueName"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
