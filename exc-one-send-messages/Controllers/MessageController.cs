@@ -16,10 +16,12 @@ namespace exc_one_send_messages.Controllers
     public class MessageController : ControllerBase
     {
         private readonly IQueueClient queueClient;
+        private readonly ITopicClient topicClient;
 
-        public MessageController(IQueueClient queueClient)
+        public MessageController(IQueueClient queueClient, ITopicClient topicClient)
         {
             this.queueClient = queueClient;
+            this.topicClient = topicClient;
         }
         public async Task<ActionResult> Post([FromBody]Commons.Message message)
         {
@@ -45,9 +47,8 @@ namespace exc_one_send_messages.Controllers
             };
 
             messageEnvelop.UserProperties["domain"] = new MailAddress(message.Receipient).Host;
-            
-            //TODO: wyślij wiadomość
 
+            await topicClient.SendAsync(messageEnvelop);
             return Ok();
         }
     }
