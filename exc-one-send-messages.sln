@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "exc_one_send_messages", "exc-one-send-messages\exc_one_send_messages.csproj", "{EFC8CFA8-8E39-42E8-992A-90495F7CD0E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exc-two-receive", "exc-two-receive\exc-two-receive.csproj", "{D3E97B32-B8CE-4756-8B86-6085A0E6E9FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "exc-two-receive", "exc-two-receive\exc-two-receive.csproj", "{D3E97B32-B8CE-4756-8B86-6085A0E6E9FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{EC0AD162-FF78-45DA-8CF4-358256D64072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D3E97B32-B8CE-4756-8B86-6085A0E6E9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3E97B32-B8CE-4756-8B86-6085A0E6E9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3E97B32-B8CE-4756-8B86-6085A0E6E9FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0AD162-FF78-45DA-8CF4-358256D64072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

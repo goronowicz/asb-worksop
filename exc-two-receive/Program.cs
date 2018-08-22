@@ -20,8 +20,8 @@ namespace exc_two_receive
             queueClient = new QueueClient(configuration["serviceBusConnection"],
                 configuration["queueName"],
                 receiveMode: ReceiveMode.PeekLock);
-
-            queueClient.RegisterMessageHandler(ReceiveMessage, ExceptionHandler);
+            var options = new MessageHandlerOptions(ExceptionHandler) { AutoComplete = false };
+            queueClient.RegisterMessageHandler(ReceiveMessage, options);
 
             WaitForEnd();
         }
@@ -40,9 +40,15 @@ namespace exc_two_receive
 
                 Console.WriteLine("Message received:");
                 Console.WriteLine(content);
+
+                var notification = JsonConvert.DeserializeObject<Commons.Message>(content);
+                if (notification == null || notification.Receipient.Contains("@test.pl"))
+                {
+                    return queueClient.AbandonAsync(message.SystemProperties.LockToken);
+                }
             }
 
-            return Task.CompletedTask;
+            return queueClient.CompleteAsync(message.SystemProperties.LockToken);
         }
 
         private static Task ExceptionHandler(ExceptionReceivedEventArgs arg)
